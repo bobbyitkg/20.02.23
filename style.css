@@ -1,0 +1,6 @@
+.hidden {
+  transform: scale(0) rotate(360deg);
+}
+p {
+  transition: transform 500ms;
+}
