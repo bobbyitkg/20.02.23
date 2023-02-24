@@ -1,6 +1,39 @@
-.hidden {
-  transform: scale(0) rotate(360deg);
+.hide {
+  display: none;
 }
-p {
-  transition: transform 500ms;
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(62, 62, 62);
+  width: 150px;
+
+  transition: transform 400ms ease-out;
+  transform: translateX(-150px);
+}
+#sidebar h1 {
+  color: white;
+  padding: 0 20px;
+  text-align: center;
+}
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#sidebar a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  border-left: 3px solid transparent;
+}
+#sidebar a:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#sidebar.show {
+  transform: translateX(0);
 }

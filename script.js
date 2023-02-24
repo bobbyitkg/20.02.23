@@ -1,70 +1,52 @@
-
-
-
-
-
-
-
-
-
-let example1 = document.querySelector("p");
-let example2 = document.querySelector(".example-class");
-let example3 = document.querySelector("#example-id");
-let example4 = document.querySelector("p:nth-child(4)");
-
-example1.textContent = "😀" + example1.textContent + "😀";
-
-example2.style.backgroundColor = "tomato";
-example2.style.color = "white";
-
-example3.style.backgroundImage = "url(/panda.JPG)";
-
-example4.style.width = "200px";
-example4.style.height = "200px";
-example4.style.margin = "30px";
-example4.style.transform = "rotate(-45deg)";
-
-let list = document.createElement("ul"); // step 1
-document.body.append(list); // step 2
-for (let i = 1; i <= 10; i++) {
-  let listItem = document.createElement("li");
-  listItem.textContent = "Example " + i;
-  list.append(listItem);
-}
-
-
-let helloBtn = document.querySelector("#hello");
-helloBtn.addEventListener("click", function() {
-  alert("Hello!");
-});
-
 let addParagraphBtn = document.querySelector("#add-paragraph");
-addParagraphBtn.addEventListener("click", function() {
-  let article = document.querySelector("article");
-  let newParagraph = document.createElement("p");
-  newParagraph.textContent = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem atque consectetur rem totam saepe sint et, perspiciatis porro at debitis!";
-  article.append(newParagraph);
+let removeParagraphBtn = document.querySelector("#remove-paragraph");
+let article = document.querySelector("article");
+addParagraphBtn.addEventListener("click", function () {
+  let p = document.createElement("p");
+  p.textContent = "Example";
+  article.append(p);
+});
+removeParagraphBtn.addEventListener("click", function () {
+  let p = document.querySelector("article p");
+  if (p) {
+    p.remove();
+  }
 });
 
-let addListItemBtn = document.querySelector("#add-list-item");
-addListItemBtn.addEventListener("click", function() {
-  let newListItem = document.createElement("li");
-  newListItem.textContent = "Example";
-  list.append(newListItem);
+let textDiv = document.querySelector(".text");
+document.querySelector("#text-hide").addEventListener("click", function () {
+  // textDiv.className = "text hide";
+  textDiv.classList.add("hide");
+});
+document.querySelector("#text-show").addEventListener("click", function () {
+  // textDiv.className = "text";
+  textDiv.classList.remove("hide");
 });
 
-let example1Btn = document.querySelector("#example-1");
-let example2Btn = document.querySelector("#example-2");
-let example1Paragraph = document.querySelector("#example-1-target");
-example1Btn.addEventListener("click", function(){
-  example1Paragraph.className = "hidden";
+
+
+let tweet = document.querySelector("#tweet");
+let tweetSubmitBtn = document.querySelector("#tweet-submit");
+let feed = document.querySelector("#feed");
+
+tweetSubmitBtn.addEventListener("click", function() {
+  let p = document.createElement("p");
+
+  p.textContent = tweet.value;
+  tweet.value = "";
+
+  feed.append(p);
 });
-example2Btn.addEventListener("click", function(){
-  example1Paragraph.className = "";
+
+let firstnameInpt = document.querySelector("#firstname");
+let lastnameInpt = document.querySelector("#lastname");
+let fullname = document.querySelector('#fullname');
+document.querySelector("#fullname-submit").addEventListener("click", function() {
+  fullname.textContent = firstnameInpt.value + " " + lastnameInpt.value;
+});
+
+// change
+// input
+document.querySelector("#example-1").addEventListener("input", function() {
+  document.querySelector("#example-1-output").textContent = this.value.length;
 })
-
-let toggleBtn = document.querySelector("#toggle");
-let toggleParagraph = document.querySelector("#toggle-target");
-toggleBtn.addEventListener("click", function() {
-  toggleParagraph.classList.toggle("hidden");
-});
