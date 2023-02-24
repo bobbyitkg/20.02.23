@@ -50,3 +50,10 @@ document.querySelector("#fullname-submit").addEventListener("click", function() 
 document.querySelector("#example-1").addEventListener("input", function() {
   document.querySelector("#example-1-output").textContent = this.value.length;
 })
+
+document.querySelector("#open-sidebar").addEventListener("click", function() {
+  document.querySelector("#sidebar").classList.add("show");
+});
+document.querySelector("#close-sidebar").addEventListener("click", function() {
+  document.querySelector("#sidebar").classList.remove("show");
+});
